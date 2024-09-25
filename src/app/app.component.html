@@ -1,3 +1,21 @@
+<html>
+<head>
+  <title> Aura Allure</title>
+</head>
+<body>
 <h1>{{title}}</h1>
-<p>{{name}}</p>
-<p>{{course}}</p>
+<div class="container">
+  <div>
+    <div *ngFor="let user of userList" class="cosmectic-card">
+      <div *ngIf="userList[5]" class="productDescription">
+        <p>Product Name : {{user.productName}}</p>
+        <p>Price : {{user.price}}</p>
+        <p>Color : {{user.color}}</p>
+        <p>Skin Type : {{user.skinType}} </p>
+        <p>User Information : {{user.userInformation}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

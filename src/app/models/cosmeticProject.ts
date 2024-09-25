@@ -1,8 +1,8 @@
 export interface CosmeticProject {
   serialNumber: number,
   productName: string,
-  Price: number,
+  price: number,
   color: string,
   skinType: string;
-  userInformation?:boolean;
+  userInformation?:string;
 }
