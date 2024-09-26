@@ -1,0 +1,10 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+.productDescription{
+  border:2px solid Grey;
+  padding: 8px;
+  margin: 8px ;
+}
