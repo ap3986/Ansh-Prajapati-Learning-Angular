@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import {CosmeticProject} from "./models/cosmeticProject";
 import {NgForOf, NgIf} from "@angular/common";
+import {CosmeticListComponent} from "./cosmetic-list/cosmetic-list.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NgForOf, NgIf],
+  imports: [RouterOutlet, NgForOf, NgIf, CosmeticListComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

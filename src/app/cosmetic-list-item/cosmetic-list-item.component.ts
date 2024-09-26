@@ -1,10 +1,13 @@
 import {Component, Input} from '@angular/core';
 import {CosmeticProject} from "../models/cosmeticProject";
+import {NgIf} from "@angular/common";
 
 @Component({
   selector: 'app-cosmetic-list-item',
   standalone: true,
-  imports: [],
+  imports: [
+    NgIf
+  ],
   templateUrl: './cosmetic-list-item.component.html',
   styleUrl: './cosmetic-list-item.component.css'
 })

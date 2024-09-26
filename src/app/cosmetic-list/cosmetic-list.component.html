@@ -1,7 +1,12 @@
-<p>cosmetic-list works!</p>
-<app-cosmetic-list-item [cosmetic] ="userList[0]"></app-cosmetic-list-item>
-<app-cosmetic-list-item [cosmetic] ="userList[1]"></app-cosmetic-list-item>
-<app-cosmetic-list-item [cosmetic] ="userList[2]"></app-cosmetic-list-item>
-<app-cosmetic-list-item [cosmetic] ="userList[3]"></app-cosmetic-list-item>
-<app-cosmetic-list-item [cosmetic] ="userList[4]"></app-cosmetic-list-item>
-<app-cosmetic-list-item [cosmetic] ="userList[5]"></app-cosmetic-list-item>
+<body>
+<table>
+  <tbody>
+  <tr *ngFor="let cosmetic of userList; let i= index">
+
+    <td colspan ="5">
+      <app-cosmetic-list-item [cosmetic]="cosmetic" [ngClass]="{'even-list-item':i%2==0,'odd-list-item':i%2!=0 }"></app-cosmetic-list-item>
+    </td>
+  </tr>
+  </tbody>
+</table>
+</body>

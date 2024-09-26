@@ -1,12 +1,15 @@
 import { Component } from '@angular/core';
 import {CosmeticProject} from "../models/cosmeticProject";
 import {CosmeticListItemComponent} from "../cosmetic-list-item/cosmetic-list-item.component";
+import {NgClass, NgForOf} from "@angular/common";
 
 @Component({
   selector: 'app-cosmetic-list',
   standalone: true,
   imports: [
-    CosmeticListItemComponent
+    CosmeticListItemComponent,
+    NgForOf,
+    NgClass
   ],
   templateUrl: './cosmetic-list.component.html',
   styleUrl: './cosmetic-list.component.css'
