@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {CosmeticProject} from "../models/cosmeticProject";
+import {CosmeticProject} from "../Shared/models/cosmeticProject";
 import {NgIf} from "@angular/common";
 
 @Component({
