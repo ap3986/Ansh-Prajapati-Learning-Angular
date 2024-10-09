@@ -1,12 +1,26 @@
-<body>
+<div class="container">
+  <h2>Cosmetic Products</h2>
 <table>
+  <thead>
+  <tr>
+    <th>Serial Number</th>
+    <th>Product Name</th>
+    <th>Skin Type</th>
+    <th>Color</th>
+    <th>Color</th>
+    <th>User Information</th>
+  </tr>
+  </thead>
   <tbody>
-  <tr *ngFor="let cosmetic of userList; let i= index">
-
-    <td colspan ="5">
-      <app-cosmetic-list-item [cosmetic]="cosmetic" [ngClass]="{'even-list-item':i%2==0,'odd-list-item':i%2!=0 }"></app-cosmetic-list-item>
-    </td>
+  <tr *ngFor="let cosmetic of userList" (click)="selectCosmetic(cosmetic)">
+    <td>{{cosmetic.serialNumber}}</td>
+    <td>{{cosmetic.productName}}</td>
+    <td>{{cosmetic.skinType}}</td>
+    <td>{{cosmetic.color}}</td>
+    <td>{{cosmetic.price}}</td>
+    <td>{{cosmetic.userInformation}}</td>
   </tr>
   </tbody>
 </table>
-</body>
+  <app-cosmetic-list-item [cosmetic]="selectedCosmetic"></app-cosmetic-list-item>
+</div>

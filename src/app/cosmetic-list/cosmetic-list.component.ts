@@ -22,7 +22,13 @@ export class CosmeticListComponent implements OnInit{
 
   ngOnInit(): void {
    this.cosmeticService.getCosmetics().subscribe({
-     next :(data:CosmeticProject[]) => this.userList =data
+     next :(data:CosmeticProject[]) => this.userList = data
    })
   }
+
+
+selectedCosmetic?:CosmeticProject;
+selectCosmetic (cosmetic: CosmeticProject): void {
+    this.selectedCosmetic = cosmetic;
+}
 }
