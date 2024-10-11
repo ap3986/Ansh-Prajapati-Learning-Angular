@@ -5,4 +5,5 @@ export interface CosmeticProject {
   color: string,
   skinType: string;
   userInformation?:string;
+  image:string;
 }

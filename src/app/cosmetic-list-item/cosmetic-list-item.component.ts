@@ -14,3 +14,5 @@ import {NgIf} from "@angular/common";
 export class CosmeticListItemComponent {
   @Input() cosmetic?: CosmeticProject;
 }
+
+

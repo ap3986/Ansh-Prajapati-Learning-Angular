@@ -1,5 +1,10 @@
-<app-cosmetic-list-item [cosmetic]="cosmetic" ></app-cosmetic-list-item>
-<h1>
-  {{title}}
-</h1>
-<app-cosmetic-list></app-cosmetic-list>
+<div class="navigation-bar">
+  <nav>
+    <a routerLink="/cosmetics" routerLinkActive="active"> Cosmetic Products</a>
+    <a routerLink="/modify-cosmetics" routerLinkActive="active">Modify Cosmetic Product</a>
+  </nav>
+</div>
+<div class="app-container">
+  <h1>{{title}}</h1>
+  <router-outlet></router-outlet>
+</div>

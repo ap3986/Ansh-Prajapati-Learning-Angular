@@ -4,16 +4,18 @@
   <thead>
   <tr>
     <th>Serial Number</th>
+    <th>Product Image</th>
     <th>Product Name</th>
     <th>Skin Type</th>
     <th>Color</th>
-    <th>Color</th>
+    <th>Price</th>
     <th>User Information</th>
   </tr>
   </thead>
   <tbody>
   <tr *ngFor="let cosmetic of userList" (click)="selectCosmetic(cosmetic)">
-    <td>{{cosmetic.serialNumber}}</td>
+    <td>{{cosmetic.serialNumber}} </td>
+    <td><img [src] ="cosmetic.image"></td>
     <td>{{cosmetic.productName}}</td>
     <td>{{cosmetic.skinType}}</td>
     <td>{{cosmetic.color}}</td>
@@ -22,5 +24,4 @@
   </tr>
   </tbody>
 </table>
-  <app-cosmetic-list-item [cosmetic]="selectedCosmetic"></app-cosmetic-list-item>
 </div>
