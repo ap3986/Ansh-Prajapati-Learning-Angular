@@ -4,4 +4,7 @@
   <p>Color : {{cosmetic.color}}</p>
   <p>Skin Type : {{cosmetic.skinType}} </p>
   <p>User Information : {{cosmetic.userInformation}}</p>
+  <button (click)="goBackward()" [disabled]="currentIndex === 0">Previous</button>
+  <button (click)="goForward()" [disabled]="currentIndex === userList.length -1">Next</button>
+  <button (click)="goBack()">Back to Products</button>
 </div>

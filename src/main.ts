@@ -4,11 +4,13 @@ import {provideRouter, Routes} from "@angular/router";
 import {CosmeticListComponent} from "./app/cosmetic-list/cosmetic-list.component";
 import {ModifyListItemComponent} from "./app/modify-list-item/modify-list-item.component";
 import {PageNotFoundComponent} from "./app/page-not-found/page-not-found.component";
+import {CosmeticListItemComponent} from "./app/cosmetic-list-item/cosmetic-list-item.component";
 
 const routes:Routes = [
-  {path:'',redirectTo:'/items',pathMatch:'full'},
-  {path:'items',component:CosmeticListComponent},
-  {path:'modify-item',component:ModifyListItemComponent},
+  {path:'',redirectTo:'/cosmetics',pathMatch:'full'},
+  {path:'cosmetics',component:CosmeticListComponent},
+  {path:'cosmetics/:serialNumber', component:CosmeticListItemComponent},
+  {path:'modify-cosmetic',component:ModifyListItemComponent},
   {path:'**', component:PageNotFoundComponent},
 ]
 

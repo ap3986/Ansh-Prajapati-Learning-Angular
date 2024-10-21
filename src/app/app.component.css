@@ -24,3 +24,41 @@ h1 {
   }
 
 
+  .navigation-bar{
+    background-color: lightgray;
+    padding: 10px 20px;
+    border-bottom: 1px solid #90b4dc;
+  }
+
+  .navigation-bar nav{
+    display: flex;
+    justify-content: center;
+  }
+
+.navigation-bar a {
+  text-decoration: none;
+  color: #007bff;
+  font-size: 18px;
+  margin: 0 15px;
+}
+
+.navigation-bar a.active {
+  font-weight: bold;
+  color: #0056b3;
+}
+
+.app-container {
+  padding: 20px;
+  max-width: 800px;
+  margin: 20px auto;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.app-container h1 {
+  font-size: 24px;
+  text-align: center;
+}
+
+

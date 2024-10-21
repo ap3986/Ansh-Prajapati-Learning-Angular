@@ -3,6 +3,7 @@ import {CosmeticProject} from "../Shared/models/cosmeticProject";
 import {CosmeticListItemComponent} from "../cosmetic-list-item/cosmetic-list-item.component";
 import {NgClass, NgForOf} from "@angular/common";
 import {CosmeticService} from "../Services/cosmetic.service";
+import {RouterLink} from "@angular/router";
 
 @Component({
   selector: 'app-cosmetic-list',
@@ -10,12 +11,14 @@ import {CosmeticService} from "../Services/cosmetic.service";
   imports: [
     CosmeticListItemComponent,
     NgForOf,
-    NgClass
+    NgClass,
+    RouterLink
   ],
   templateUrl: './cosmetic-list.component.html',
   styleUrl: './cosmetic-list.component.css'
 })
 export class CosmeticListComponent implements OnInit{
+  displayedColumns:string[]=['serialNumber','productName','price','color','skinType','userInformation'];
   userList: CosmeticProject[] = [];
  constructor(private cosmeticService: CosmeticService) {
  }

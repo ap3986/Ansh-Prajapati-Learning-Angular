@@ -13,7 +13,7 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let cosmetic of userList" (click)="selectCosmetic(cosmetic)">
+  <tr *ngFor="let cosmetic of userList" [routerLink]="['/cosmetics',cosmetic.serialNumber]">
     <td>{{cosmetic.serialNumber}} </td>
     <td><img [src] ="cosmetic.image"></td>
     <td>{{cosmetic.productName}}</td>
