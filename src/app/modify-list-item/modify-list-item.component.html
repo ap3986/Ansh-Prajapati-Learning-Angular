@@ -1,1 +1,37 @@
-<p>modify-list-item works!</p>
+<form [formGroup]="cosmeticForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="serialNumber">Serial Number</label>
+    <input type="number" id="serialNumber" formControlName="serialNumber" />
+  </div>
+
+  <div class="form-group">
+    <label for="productName">Product Name</label>
+    <input type="text" id="productName" formControlName="productName" />
+  </div>
+
+  <div class="form-group">
+    <label for="price">Price</label>
+    <input type="text" id="price" formControlName="price" />
+  </div>
+
+  <div class="form-group">
+    <label for="color">Color</label>
+    <input type="text" id="color" formControlName="color" />
+  </div>
+
+  <div class="form-group">
+    <label for="skinType">Skin Type</label>
+    <input type="text" id="skinType" formControlName="skinType" />
+  </div>
+
+  <div class="form-group">
+    <label for="userInformation">User Information Is Available</label>
+    <input type="checkbox" id="userInformation" formControlName="userInformation" />
+  </div>
+
+  <button type="submit">Submit</button>
+
+  <button type="button" (click)="onDelete()">Delete</button>
+
+  <button type="button" (click)="navigateToCosmeticList()">Back to List</button>
+</form>

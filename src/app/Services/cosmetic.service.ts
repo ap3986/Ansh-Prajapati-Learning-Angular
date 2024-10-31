@@ -5,36 +5,38 @@ import {userList} from "../Shared/data/mock-content";
 @Injectable({
   providedIn: 'root'
 })
+
 export class CosmeticService {
   private cosmetics : CosmeticProject[] = userList;
-
-
   constructor() { }
   // already completed step-2
   getCosmetics(): Observable<CosmeticProject[]>{
-    return of (userList)
-  }
-
-  addCosmetics(newProduct:CosmeticProject): Observable<CosmeticProject[]>{
-    this.cosmetics.push(newProduct)
     return of (this.cosmetics)
   }
 
-  updateCosmetics(updatedProduct : CosmeticProject ): Observable<CosmeticProject[]>{
-    const index = this.cosmetics.findIndex(product => product.serialNumber == updatedProduct.serialNumber);
-    if(index !== -1 ){
-      this.cosmetics[index] = updatedProduct;
-    }
-    return of (this.cosmetics);
+  getCosmeticByserialNumber(serialNumber:number): Observable<CosmeticProject | undefined>{
+   return of (this.cosmetics.find(cosmetic => cosmetic.serialNumber === serialNumber));
   }
 
-  deleteCosmetics(cosmeticSerialNumber: number):Observable<CosmeticProject[]>{
-    this.cosmetics = this.cosmetics.filter(product => product.serialNumber !== cosmeticSerialNumber);
-    return of (this.cosmetics);
-  }
-
-  getCosmeticsByserialNumber(cosmeticSerialNumber:number): Observable<CosmeticProject | undefined>{
-    const cosmetic =this.cosmetics.find(product => product.serialNumber === cosmeticSerialNumber);
+  addCosmetic(cosmetic:CosmeticProject): Observable<CosmeticProject>{
+    this.cosmetics.push(cosmetic)
     return of (cosmetic)
   }
+
+  updateCosmetic(updatedCosmetic : CosmeticProject ): Observable<CosmeticProject | undefined >{
+    const index = this.cosmetics.findIndex(cosmetic => cosmetic.serialNumber == updatedCosmetic.serialNumber);
+    if(index !== -1 ){
+      this.cosmetics[index] = updatedCosmetic;
+      return of (updatedCosmetic)
+    }
+    return of (undefined);
+  }
+
+  deleteCosmetic(serialNumber: number): void{
+    this.cosmetics = this.cosmetics.filter(cosmetic => cosmetic.serialNumber !== serialNumber);
+  }
+  generateNewserialNumber(): number {
+    return this.cosmetics.length > 0 ? Math.max(...this.cosmetics.map(cosmetic => cosmetic.serialNumber)) + 1 : 1;
+  }
+
 }
