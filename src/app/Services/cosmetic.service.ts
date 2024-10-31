@@ -33,8 +33,8 @@ export class CosmeticService {
     return of (this.cosmetics);
   }
 
-getCosmeticsByserialNumber(cosmeticSerialNumber:number): Observable<CosmeticProject | undefined>{
+  getCosmeticsByserialNumber(cosmeticSerialNumber:number): Observable<CosmeticProject | undefined>{
     const cosmetic =this.cosmetics.find(product => product.serialNumber === cosmeticSerialNumber);
     return of (cosmetic)
-}
+  }
 }
