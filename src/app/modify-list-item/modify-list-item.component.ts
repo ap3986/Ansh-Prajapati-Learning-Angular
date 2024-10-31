@@ -35,5 +35,42 @@ export class ModifyListItemComponent implements OnInit{
   }
 
   ngOnInit(): void {
+    const serialNumber = this.route.snapshot.paramMap.get('serialNumber');
+    if (serialNumber) {
+      this.cosmeticService.getCosmeticByserialNumber(+serialNumber).subscribe(cosmetic => {
+        if(cosmetic) {
+          this.cosmetic = cosmetic;
+
+          this.cosmeticForm.patchValue(cosmetic);
+        }
+      });
+    }
+  }
+
+  onSubmit(): void {
+    const cosmetic: CosmeticProject = this.cosmeticForm.value;
+
+    if (cosmetic.serialNumber) {
+      this.cosmeticService.updateCosmetic(cosmetic);
+    } else {
+      // For adding a new student, generate a new ID
+      const newserialNumber = this.cosmeticService.generateNewserialNumber();
+      cosmetic.serialNumber = newserialNumber;
+      this.cosmeticService.addCosmetic(cosmetic);
+    }
+
+    this.router.navigate(['/cosmetics']);
+  }
+
+  onDelete(): void {
+    const serialNumber = this.cosmeticForm.get('serialNumber')?.value;
+    if (serialNumber) {
+      this.cosmeticService.deleteCosmetic(serialNumber);
+      this.router.navigate(['/cosmetics']);
+    }
+  }
+
+  navigateToCosmeticList(): void {
+    this.router.navigate(['/cosmetics']);
   }
 }

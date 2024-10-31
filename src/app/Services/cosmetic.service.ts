@@ -9,7 +9,6 @@ import {userList} from "../Shared/data/mock-content";
 export class CosmeticService {
   private cosmetics : CosmeticProject[] = userList;
   constructor() { }
-  // already completed step-2
   getCosmetics(): Observable<CosmeticProject[]>{
     return of (this.cosmetics)
   }
