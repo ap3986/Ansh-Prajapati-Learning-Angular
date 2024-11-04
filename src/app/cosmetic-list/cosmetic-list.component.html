@@ -4,7 +4,6 @@
   <thead>
   <tr>
     <th>Serial Number</th>
-    <th>Product Image</th>
     <th>Product Name</th>
     <th>Skin Type</th>
     <th>Color</th>
@@ -15,7 +14,6 @@
   <tbody>
   <tr *ngFor="let cosmetic of userList" [routerLink]="['/cosmetics',cosmetic.serialNumber]">
     <td>{{cosmetic.serialNumber}} </td>
-    <td><img [src] ="cosmetic.image"></td>
     <td>{{cosmetic.productName}}</td>
     <td>{{cosmetic.skinType}}</td>
     <td>{{cosmetic.color}}</td>
