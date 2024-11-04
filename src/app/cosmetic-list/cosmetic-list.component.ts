@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {CosmeticProject} from "../Shared/models/cosmeticProject";
 import {CosmeticListItemComponent} from "../cosmetic-list-item/cosmetic-list-item.component";
-import {NgClass, NgForOf} from "@angular/common";
+import {NgClass, NgForOf, NgIf} from "@angular/common";
 import {CosmeticService} from "../Services/cosmetic.service";
 import {RouterLink} from "@angular/router";
 
@@ -12,7 +12,8 @@ import {RouterLink} from "@angular/router";
     CosmeticListItemComponent,
     NgForOf,
     NgClass,
-    RouterLink
+    RouterLink,
+    NgIf
   ],
   templateUrl: './cosmetic-list.component.html',
   styleUrl: './cosmetic-list.component.css'
@@ -20,13 +21,22 @@ import {RouterLink} from "@angular/router";
 export class CosmeticListComponent implements OnInit{
   displayedColumns:string[]=['serialNumber','productName','price','color','skinType','userInformation'];
   userList: CosmeticProject[] = [];
+  error : string | null = null;
  constructor(private cosmeticService: CosmeticService) {
  }
 
   ngOnInit(): void {
    this.cosmeticService.getCosmetics().subscribe({
-     next :(data:CosmeticProject[]) => this.userList = data
-   })
+     next :(data:CosmeticProject[]) => {
+       this.userList = data
+       this.error = null;
+     },
+     error: err => {
+       this.error = 'Error fetching cosmetics';
+       console.error("Error fetching Cosmetics", err);
+     },
+     complete: () => console.log("Cosmetic data fetch complete!")
+   });
   }
 
 

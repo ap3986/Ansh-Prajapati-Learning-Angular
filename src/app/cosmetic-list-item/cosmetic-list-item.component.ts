@@ -1,7 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {CosmeticProject} from "../Shared/models/cosmeticProject";
 import {NgIf} from "@angular/common";
-import {userList} from "../Shared/data/mock-content";
 import {ActivatedRoute, Router} from "@angular/router";
 import {CosmeticService} from "../Services/cosmetic.service";
 
@@ -18,6 +17,7 @@ export class CosmeticListItemComponent implements OnInit{
   cosmetic : CosmeticProject | undefined;
   userList : CosmeticProject[] = [];
   currentIndex : number = 0;
+  error: string|null = null;
 
   constructor(
     private route : ActivatedRoute,
@@ -25,18 +25,26 @@ export class CosmeticListItemComponent implements OnInit{
     private router : Router
   ) {}
   ngOnInit(): void {
-    this.cosmeticService.getCosmetics().subscribe(users => {
-      this.userList = users;
+    this.cosmeticService.getCosmetics().subscribe({
+      next: (users: CosmeticProject[]) => {
+        this.userList = users;
+        this.error = null;
 
-    this.route.paramMap.subscribe(params => {
-      const serialNumber = Number (params.get('serialNumber'));
-      if (serialNumber){
-        this.currentIndex = this.userList.findIndex(user => user.serialNumber === serialNumber);
-        this.cosmetic=this.userList[this.currentIndex]
+        this.route.paramMap.subscribe(params => {
+          const serialNumber = Number(params.get('serialNumber'));
+          if (serialNumber) {
+            this.currentIndex = this.userList.findIndex(user => user.serialNumber === serialNumber);
+            this.cosmetic = this.userList[this.currentIndex];
+          }
+        });
+      },
+      error: (err) => {
+        this.error = 'Error fetching cosmetics';
+        console.error('Error fetching cosmetics:', err);
       }
-    })
-    })
+    });
   }
+
   goBack(): void {
     this.router.navigate(['/cosmetics'])
   }
@@ -51,7 +59,8 @@ export class CosmeticListItemComponent implements OnInit{
   goBackward(): void{
     if(this.currentIndex>0){
       this.currentIndex --;
-      this.router.navigate(['/cosmetics',this.userList[this.currentIndex].serialNumber]);
+      this.router.navigate(['/cosmetics',
+      this.userList[this.currentIndex].serialNumber]);
     }
   }
 
