@@ -4,6 +4,7 @@ import {NgIf} from "@angular/common";
 import {ActivatedRoute, Router} from "@angular/router";
 import {CosmeticService} from "../Services/cosmetic.service";
 import {CosmeticProject} from "../Shared/models/cosmeticProject";
+import {min} from "rxjs";
 
 @Component({
   selector: 'app-modify-list-item',
@@ -25,8 +26,8 @@ export class ModifyListItemComponent implements OnInit{
     private router: Router
   ){
     this.cosmeticForm = this.fb.group({
-      serialNumber: ['', Validators.required],
-      productName: ['', Validators.required],
+      serialNumber: ['', Validators.required, Validators.pattern(/^[0-9]*$/),Validators.min(0)],
+      productName: ['', Validators.required, Validators.pattern(/^[a-zA-Z0-9]*$/)],
       price: ['', Validators.required],
       color: [''],
       skinType: [''],
