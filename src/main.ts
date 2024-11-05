@@ -5,6 +5,10 @@ import {CosmeticListComponent} from "./app/cosmetic-list/cosmetic-list.component
 import {ModifyListItemComponent} from "./app/modify-list-item/modify-list-item.component";
 import {PageNotFoundComponent} from "./app/page-not-found/page-not-found.component";
 import {CosmeticListItemComponent} from "./app/cosmetic-list-item/cosmetic-list-item.component";
+import {provideHttpClient} from "@angular/common/http";
+import {InMemoryDataService} from "./app/Services/in-memory-data.service";
+import {HttpClientInMemoryWebApiModule} from "angular-in-memory-web-api";
+import {importProvidersFrom} from "@angular/core";
 
 const routes:Routes = [
   {path:'',redirectTo:'/cosmetics',pathMatch:'full'},
@@ -15,5 +19,8 @@ const routes:Routes = [
 ]
 
 bootstrapApplication(AppComponent, {
-  providers:[provideRouter(routes)]
-});
+  providers:[
+    provideHttpClient(),
+    provideRouter(routes),
+    importProvidersFrom(HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { delay: 0 }))],
+}).catch((err) => console.error(err));
