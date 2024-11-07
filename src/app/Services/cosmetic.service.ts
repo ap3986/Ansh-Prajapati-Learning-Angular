@@ -15,15 +15,15 @@ export class CosmeticService {
     return of (userList)
   }
 
-  addCosmetics(newProduct:CosmeticProject): Observable<CosmeticProject[]>{
-    this.cosmetics.push(newProduct)
+  addCosmetics(newCosmetic:CosmeticProject): Observable<CosmeticProject[]>{
+    this.cosmetics.push(newCosmetic)
     return of (this.cosmetics)
   }
 
-  updateCosmetics(updatedProduct : CosmeticProject ): Observable<CosmeticProject[]>{
-    const index = this.cosmetics.findIndex(product => product.serialNumber == updatedProduct.serialNumber);
+  updateCosmetics(updatedCosmetic : CosmeticProject ): Observable<CosmeticProject[]>{
+    const index = this.cosmetics.findIndex(product => product.serialNumber == updatedCosmetic.serialNumber);
     if(index !== -1 ){
-      this.cosmetics[index] = updatedProduct;
+      this.cosmetics[index] = updatedCosmetic;
     }
     return of (this.cosmetics);
   }
