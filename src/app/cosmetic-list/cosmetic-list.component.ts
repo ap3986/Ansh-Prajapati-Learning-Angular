@@ -3,7 +3,7 @@ import {CosmeticProject} from "../Shared/models/cosmeticProject";
 import {CosmeticListItemComponent} from "../cosmetic-list-item/cosmetic-list-item.component";
 import {NgClass, NgForOf} from "@angular/common";
 import {CosmeticService} from "../Services/cosmetic.service";
-import {RouterLink} from "@angular/router";
+import {Router, RouterLink} from "@angular/router";
 
 @Component({
   selector: 'app-cosmetic-list',
@@ -20,7 +20,7 @@ import {RouterLink} from "@angular/router";
 export class CosmeticListComponent implements OnInit{
   displayedColumns:string[]=['serialNumber','productName','price','color','skinType','userInformation'];
   userList: CosmeticProject[] = [];
- constructor(private cosmeticService: CosmeticService) {
+ constructor(private cosmeticService: CosmeticService, private router : Router) {
  }
 
   ngOnInit(): void {
@@ -34,4 +34,12 @@ selectedCosmetic?:CosmeticProject;
 selectCosmetic (cosmetic: CosmeticProject): void {
     this.selectedCosmetic = cosmetic;
 }
+
+  onDelete(serialNumber:number): void {
+    this.userList =this.userList.filter(cosmmetic => cosmmetic.serialNumber !== serialNumber)
+  }
+
+  navigateToCosmeticList(): void {
+    this.router.navigate(['/modify-cosmetic']);
+  }
 }

@@ -23,8 +23,8 @@ export class CosmeticService {
   }
 
   updateCosmetic(updatedCosmetic : CosmeticProject ): Observable<CosmeticProject | undefined >{
-    const index = this.cosmetics.findIndex(cosmetic => cosmetic.serialNumber == updatedCosmetic.serialNumber);
-    if(index !== -1 ){
+    const index = this.cosmetics.findIndex(cosmetic => cosmetic.serialNumber === updatedCosmetic.serialNumber);
+    if(index > -1 ){
       this.cosmetics[index] = updatedCosmetic;
       return of (updatedCosmetic)
     }

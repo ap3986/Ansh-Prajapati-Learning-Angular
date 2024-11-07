@@ -63,15 +63,5 @@ export class ModifyListItemComponent implements OnInit{
     this.router.navigate(['/cosmetics']);
   }
 
-  onDelete(): void {
-    const serialNumber = this.cosmeticForm.get('serialNumber')?.value;
-    if (serialNumber) {
-      this.cosmeticService.deleteCosmetic(serialNumber);
-      this.router.navigate(['/cosmetics']);
-    }
-  }
 
-  navigateToCosmeticList(): void {
-    this.router.navigate(['/cosmetics']);
-  }
 }
