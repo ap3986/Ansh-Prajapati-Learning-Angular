@@ -18,6 +18,7 @@ export class CosmeticListItemComponent implements OnInit{
   cosmetic : CosmeticProject | undefined;
   userList : CosmeticProject[] = [];
   currentIndex : number = 0;
+  error:string|null = null;
 
   constructor(
     private route : ActivatedRoute,
@@ -25,17 +26,24 @@ export class CosmeticListItemComponent implements OnInit{
     private router : Router
   ) {}
   ngOnInit(): void {
-    this.cosmeticService.getCosmetics().subscribe(users => {
-      this.userList = users;
+    this.cosmeticService.getCosmetics().subscribe({
+      next:(cosmetics:CosmeticProject[])=>{
+        this.userList = cosmetics;
+        this.error = null;
 
-    this.route.paramMap.subscribe(params => {
-      const serialNumber = Number (params.get('serialNumber'));
-      if (serialNumber){
-        this.currentIndex = this.userList.findIndex(user => user.serialNumber === serialNumber);
-        this.cosmetic=this.userList[this.currentIndex]
+        this.route.paramMap.subscribe(params=>{
+          const id = Number(params.get('serialNumber'));
+          if(id){
+            this.currentIndex = this.userList.findIndex(cos=>cos.serialNumber===id);
+            this.cosmetic = this.userList[this.currentIndex];
+          }
+        });
+      },
+      error:(err)=>{
+        this.error='Error fetching cosmetics';
+        console.error("Error fetching cosmetics",err);
       }
-    })
-    })
+    });
   }
   goBack(): void {
     this.router.navigate(['/cosmetics'])

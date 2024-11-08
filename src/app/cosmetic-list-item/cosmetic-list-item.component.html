@@ -8,3 +8,5 @@
   <button (click)="goForward()" [disabled]="currentIndex === userList.length -1">Next</button>
   <button (click)="goBack()">Back to Products</button>
 </div>
+
+<div *ngIf="error">{{error}}</div>

@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {CosmeticProject} from "../Shared/models/cosmeticProject";
 import {CosmeticListItemComponent} from "../cosmetic-list-item/cosmetic-list-item.component";
-import {NgClass, NgForOf} from "@angular/common";
+import {NgClass, NgForOf, NgIf} from "@angular/common";
 import {CosmeticService} from "../Services/cosmetic.service";
 import {Router, RouterLink} from "@angular/router";
 
@@ -12,20 +12,31 @@ import {Router, RouterLink} from "@angular/router";
     CosmeticListItemComponent,
     NgForOf,
     NgClass,
-    RouterLink
+    RouterLink,
+    NgIf
   ],
   templateUrl: './cosmetic-list.component.html',
   styleUrl: './cosmetic-list.component.css'
 })
 export class CosmeticListComponent implements OnInit{
-  displayedColumns:string[]=['serialNumber','productName','price','color','skinType','userInformation'];
+  //displayedColumns:string[]=['serialNumber','productName','price','color','skinType','userInformation'];
   userList: CosmeticProject[] = [];
- constructor(private cosmeticService: CosmeticService, private router : Router) {
+  error : string|null = null;
+ constructor(private cosmeticService: CosmeticService,
+             private router : Router) {
  }
 
-  ngOnInit(): void {
+  ngOnInit(){
    this.cosmeticService.getCosmetics().subscribe({
-     next :(data:CosmeticProject[]) => this.userList = data
+     next: (data:CosmeticProject[]) => {
+       this.userList =data;
+       this.error = null;
+     },
+     error:err=>{
+       this.error = 'Error fetching cosmetics';
+       console.error("Error fetching cosmetics",err);
+     },
+     complete:()=>console.log("Cosmetics data fetch complete successfully")
    })
   }
 
@@ -35,11 +46,11 @@ selectCosmetic (cosmetic: CosmeticProject): void {
     this.selectedCosmetic = cosmetic;
 }
 
-  onDelete(serialNumber:number): void {
+  delete(serialNumber:number): void {
     this.userList =this.userList.filter(cosmmetic => cosmmetic.serialNumber !== serialNumber)
   }
 
-  navigateToCosmeticList(): void {
-    this.router.navigate(['/modify-cosmetic']);
+  navigateToCosmeticList(serialNumber:number): void {
+    this.router.navigate(['/modify-cosmetic',serialNumber]);
   }
 }
