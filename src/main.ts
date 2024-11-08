@@ -15,6 +15,7 @@ const routes:Routes = [
   {path:'cosmetics',component:CosmeticListComponent},
   {path:'cosmetics/:serialNumber', component:CosmeticListItemComponent},
   {path:'modify-cosmetic',component:ModifyListItemComponent},
+  {path:'modify-cosmetic/:serialNumber',component:ModifyListItemComponent},
   {path:'**', component:PageNotFoundComponent},
 ]
 
@@ -22,5 +23,5 @@ bootstrapApplication(AppComponent, {
   providers:[
     provideHttpClient(),
     provideRouter(routes),
-    importProvidersFrom(HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { delay: 0 }))],
+    importProvidersFrom(HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { delay: 1000 }))],
 }).catch((err) => console.error(err));

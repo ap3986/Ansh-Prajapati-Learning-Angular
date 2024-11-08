@@ -31,7 +31,8 @@
 
   <button type="submit">Submit</button>
 
-  <button type="button" (click)="onDelete()">Delete</button>
+<!--  <button type="button" (click)="delete()">Delete</button>-->
 
   <button type="button" (click)="navigateToCosmeticList()">Back to List</button>
 </form>
+<div *ngIf="error" class="error">{{ error }}</div>

@@ -1,7 +1,7 @@
 import { InMemoryDbService } from 'angular-in-memory-web-api';
 import {CosmeticProject} from "../Shared/models/cosmeticProject";
 export class InMemoryDataService implements InMemoryDbService {
-  createDb() {
+  createDb() : { cosmetics : CosmeticProject[]}{
     const cosmetics: CosmeticProject[] = [
       {serialNumber: 100, productName: "Glow Serum", price: 20, color: "Soft Rose", skinType: "Normal Skin", userInformation: "No",image:"/assets/serum.jpg"},
       {serialNumber: 200, productName: "Hydration Booster", price: 25, color: "Crystal Clear", skinType: "Dry Skin", userInformation: "No",image:"assets/hydrationcream.jpg"},
