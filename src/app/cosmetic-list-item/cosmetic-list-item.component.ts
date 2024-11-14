@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {CosmeticProject} from "../Shared/models/cosmeticProject";
-import {NgIf} from "@angular/common";
+import {CurrencyPipe, LowerCasePipe, NgIf, UpperCasePipe} from "@angular/common";
 import {ActivatedRoute, Router} from "@angular/router";
 import {CosmeticService} from "../Services/cosmetic.service";
 
@@ -8,7 +8,10 @@ import {CosmeticService} from "../Services/cosmetic.service";
   selector: 'app-cosmetic-list-item',
   standalone: true,
   imports: [
-    NgIf
+    NgIf,
+    UpperCasePipe,
+    LowerCasePipe,
+    CurrencyPipe
   ],
   templateUrl: './cosmetic-list-item.component.html',
   styleUrl: './cosmetic-list-item.component.css'

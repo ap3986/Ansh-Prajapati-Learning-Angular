@@ -1,9 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {CosmeticProject} from "../Shared/models/cosmeticProject";
 import {CosmeticListItemComponent} from "../cosmetic-list-item/cosmetic-list-item.component";
-import {NgClass, NgForOf} from "@angular/common";
+import {CurrencyPipe, DatePipe, LowerCasePipe, NgClass, NgForOf, TitleCasePipe, UpperCasePipe} from "@angular/common";
 import {CosmeticService} from "../Services/cosmetic.service";
 import {Router, RouterLink} from "@angular/router";
+import {ProductSerialNumberPipe} from "../pipes/product-serial-number.pipe";
 
 @Component({
   selector: 'app-cosmetic-list',
@@ -12,7 +13,12 @@ import {Router, RouterLink} from "@angular/router";
     CosmeticListItemComponent,
     NgForOf,
     NgClass,
-    RouterLink
+    RouterLink,
+    CurrencyPipe,
+    UpperCasePipe,
+    LowerCasePipe,
+    ProductSerialNumberPipe,
+    TitleCasePipe
   ],
   templateUrl: './cosmetic-list.component.html',
   styleUrl: './cosmetic-list.component.css'

@@ -3,8 +3,7 @@
 <table>
   <thead>
   <tr>
-    <th>Serial Number</th>
-    <th>Product Name</th>
+    <th>Serial Number & Product Name </th>
     <th>Skin Type</th>
     <th>Color</th>
     <th>Price</th>
@@ -13,11 +12,10 @@
   </thead>
   <tbody>
   <tr *ngFor="let cosmetic of userList" [routerLink]="['/cosmetics',cosmetic.serialNumber]">
-    <td>{{cosmetic.serialNumber}} </td>
-    <td>{{cosmetic.productName}}</td>
-    <td>{{cosmetic.skinType}}</td>
-    <td>{{cosmetic.color}}</td>
-    <td>{{cosmetic.price}}</td>
+    <td>{{cosmetic | productSerialNumber | titlecase}}</td>
+    <td>{{cosmetic.skinType | uppercase}}</td>
+    <td>{{cosmetic.color | lowercase}}</td>
+    <td>{{cosmetic.price | currency: 'CAD': "symbol-narrow"}}</td>
     <td>{{cosmetic.userInformation}}</td>
     <button type="button" (click)="onDelete(cosmetic.serialNumber)">Delete</button>
 
