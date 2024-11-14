@@ -1,11 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
-import {CosmeticProject} from "./Shared/models/cosmeticProject";
 import {NgForOf, NgIf} from "@angular/common";
 import {CosmeticListComponent} from "./cosmetic-list/cosmetic-list.component";
 import {CosmeticListItemComponent} from "./cosmetic-list-item/cosmetic-list-item.component";
-import {CosmeticService} from "./Services/cosmetic.service";
-import {userList} from "./Shared/data/mock-content";
 
 
 @Component({

@@ -1,7 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {CosmeticProject} from "../Shared/models/cosmeticProject";
 import {NgIf} from "@angular/common";
-import {userList} from "../Shared/data/mock-content";
 import {ActivatedRoute, Router} from "@angular/router";
 import {CosmeticService} from "../Services/cosmetic.service";
 
