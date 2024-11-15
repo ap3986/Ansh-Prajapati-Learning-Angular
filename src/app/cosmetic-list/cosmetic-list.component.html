@@ -13,7 +13,7 @@
   <tbody>
   <tr *ngFor="let cosmetic of userList" [routerLink]="['/cosmetics',cosmetic.serialNumber]">
     <td>{{cosmetic | productSerialNumber | titlecase}}</td>
-    <td>{{cosmetic.skinType | uppercase}}</td>
+    <td [ngClass]="cosmetic.skinType | skinType">{{cosmetic.skinType}}</td>
     <td>{{cosmetic.color | lowercase}}</td>
     <td>{{cosmetic.price | currency: 'CAD': "symbol-narrow"}}</td>
     <td>{{cosmetic.userInformation}}</td>

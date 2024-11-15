@@ -5,6 +5,7 @@ import {CurrencyPipe, DatePipe, LowerCasePipe, NgClass, NgForOf, TitleCasePipe, 
 import {CosmeticService} from "../Services/cosmetic.service";
 import {Router, RouterLink} from "@angular/router";
 import {ProductSerialNumberPipe} from "../pipes/product-serial-number.pipe";
+import {SkinTypePipe} from "../pipes/skin-type.pipe";
 
 @Component({
   selector: 'app-cosmetic-list',
@@ -18,7 +19,8 @@ import {ProductSerialNumberPipe} from "../pipes/product-serial-number.pipe";
     UpperCasePipe,
     LowerCasePipe,
     ProductSerialNumberPipe,
-    TitleCasePipe
+    TitleCasePipe,
+    SkinTypePipe
   ],
   templateUrl: './cosmetic-list.component.html',
   styleUrl: './cosmetic-list.component.css'
