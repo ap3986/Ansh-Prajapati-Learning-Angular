@@ -6,6 +6,7 @@ import {CosmeticService} from "../Services/cosmetic.service";
 import {Router, RouterLink} from "@angular/router";
 import {ProductSerialNumberPipe} from "../pipes/product-serial-number.pipe";
 import {SkinTypePipe} from "../pipes/skin-type.pipe";
+import {HoverHighlightDirective} from "../directives/hover-highlight.directive";
 
 @Component({
   selector: 'app-cosmetic-list',
@@ -20,7 +21,8 @@ import {SkinTypePipe} from "../pipes/skin-type.pipe";
     LowerCasePipe,
     ProductSerialNumberPipe,
     TitleCasePipe,
-    SkinTypePipe
+    SkinTypePipe,
+    HoverHighlightDirective
   ],
   templateUrl: './cosmetic-list.component.html',
   styleUrl: './cosmetic-list.component.css'

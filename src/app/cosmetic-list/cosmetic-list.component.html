@@ -11,7 +11,7 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let cosmetic of userList" [routerLink]="['/cosmetics',cosmetic.serialNumber]">
+  <tr *ngFor="let cosmetic of userList" [routerLink]="['/cosmetics',cosmetic.serialNumber]" [appHoverHighlight]="'lightblue'">
     <td>{{cosmetic | productSerialNumber | titlecase}}</td>
     <td [ngClass]="cosmetic.skinType | skinType">{{cosmetic.skinType}}</td>
     <td>{{cosmetic.color | lowercase}}</td>

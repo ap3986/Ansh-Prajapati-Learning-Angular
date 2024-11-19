@@ -3,6 +3,7 @@ import {CosmeticProject} from "../Shared/models/cosmeticProject";
 import {CurrencyPipe, LowerCasePipe, NgIf, UpperCasePipe} from "@angular/common";
 import {ActivatedRoute, Router} from "@angular/router";
 import {CosmeticService} from "../Services/cosmetic.service";
+import {HoverHighlightDirective} from "../directives/hover-highlight.directive";
 
 @Component({
   selector: 'app-cosmetic-list-item',
@@ -11,7 +12,8 @@ import {CosmeticService} from "../Services/cosmetic.service";
     NgIf,
     UpperCasePipe,
     LowerCasePipe,
-    CurrencyPipe
+    CurrencyPipe,
+    HoverHighlightDirective
   ],
   templateUrl: './cosmetic-list-item.component.html',
   styleUrl: './cosmetic-list-item.component.css'
