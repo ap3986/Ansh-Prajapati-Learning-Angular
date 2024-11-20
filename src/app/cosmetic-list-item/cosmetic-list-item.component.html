@@ -1,10 +1,10 @@
 <div *ngIf="cosmetic" class="productDescription">
-  <p>Serial Number : {{cosmetic.serialNumber}}</p>
-  <p>Price : {{cosmetic.price | currency: 'CAD': "symbol-narrow"}}</p>
-  <p>Color : {{cosmetic.color | uppercase}}</p>
-  <p>Skin Type : {{cosmetic.skinType | lowercase}} </p>
-  <p>User Information : {{cosmetic.userInformation}}</p>
-  <button (click)="goBackward()" [disabled]="currentIndex === 0">Previous</button>
-  <button (click)="goForward()" [disabled]="currentIndex === userList.length -1">Next</button>
-  <button (click)="goBack()">Back to Products</button>
+  <p [appHoverHighlight]="'skyblue'">Serial Number : {{cosmetic.serialNumber}}</p>
+  <p [appHoverHighlight]="'skyblue'">Price : {{cosmetic.price | currency: 'CAD': "symbol-narrow"}}</p>
+  <p [appHoverHighlight]="'skyblue'">Color : {{cosmetic.color | uppercase}}</p>
+  <p [appHoverHighlight]="'skyblue'">Skin Type : {{cosmetic.skinType | lowercase}} </p>
+  <p [appHoverHighlight]="'skyblue'">User Information : {{cosmetic.userInformation}}</p>
+  <button (click)="goBackward()" [disabled]="currentIndex === 0" [appHoverHighlight]="'blue'">Previous</button>
+  <button (click)="goForward()" [disabled]="currentIndex === userList.length -1" [appHoverHighlight]="'blue'">Next</button>
+  <button (click)="goBack()" [appHoverHighlight]="'blue'">Back to Products</button>
 </div>

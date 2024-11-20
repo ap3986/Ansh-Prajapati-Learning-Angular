@@ -1,15 +1,16 @@
 import {Directive, ElementRef, HostListener, Input} from '@angular/core';
 
 @Directive({
-  selector: '[appHoverHighlight]',
+  selector: '[appHighlightOnFocus]',
   standalone: true
 })
-export class HoverHighlightDirective {
-  @Input() appHoverHighlight = '';
+export class HighlightOnFocusDirective {
+
+  @Input() appHighlightOnFocus = '';
   constructor(private el : ElementRef) { }
 
   @HostListener('mouseenter') onMouseEnter(){
-    this.highlight(this.appHoverHighlight || 'blue');
+    this.highlight(this.appHighlightOnFocus || 'blue');
   }
   @HostListener('mouseleave') onMouseLeave(){
     this.highlight('');

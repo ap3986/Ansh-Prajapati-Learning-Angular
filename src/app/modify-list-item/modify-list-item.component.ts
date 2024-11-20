@@ -5,13 +5,14 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {CosmeticService} from "../Services/cosmetic.service";
 import {CosmeticProject} from "../Shared/models/cosmeticProject";
 import {min} from "rxjs";
+import {HighlightOnFocusDirective} from "../directives/highlight-on-focus.directive";
 
 @Component({
   selector: 'app-modify-list-item',
   standalone: true,
-  imports: [ FormsModule,
+  imports: [FormsModule,
     NgIf,
-    ReactiveFormsModule],
+    ReactiveFormsModule, HighlightOnFocusDirective],
   templateUrl: './modify-list-item.component.html',
   styleUrl: './modify-list-item.component.css'
 })

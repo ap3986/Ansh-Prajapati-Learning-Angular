@@ -1,27 +1,27 @@
 <form [formGroup]="cosmeticForm" (ngSubmit)="onSubmit()">
   <div class="form-group">
     <label for="serialNumber">Serial Number</label>
-    <input type="number" id="serialNumber" formControlName="serialNumber" />
+    <input type="number" id="serialNumber" formControlName="serialNumber" [appHighlightOnFocus] = "'lightgrey'"  />
   </div>
 
   <div class="form-group">
     <label for="productName">Product Name</label>
-    <input type="text" id="productName" formControlName="productName" />
+    <input type="text" id="productName" formControlName="productName" [appHighlightOnFocus] = "'lightgrey'" />
   </div>
 
   <div class="form-group">
     <label for="price">Price</label>
-    <input type="text" id="price" formControlName="price" />
+    <input type="text" id="price" formControlName="price" [appHighlightOnFocus] = "'lightgrey'" />
   </div>
 
   <div class="form-group">
     <label for="color">Color</label>
-    <input type="text" id="color" formControlName="color" />
+    <input type="text" id="color" formControlName="color" [appHighlightOnFocus] = "'lightgrey'" />
   </div>
 
   <div class="form-group">
     <label for="skinType">Skin Type</label>
-    <input type="text" id="skinType" formControlName="skinType" />
+    <input type="text" id="skinType" formControlName="skinType" [appHighlightOnFocus] = "'lightgrey'" />
   </div>
 
   <div class="form-group">
@@ -29,7 +29,7 @@
     <input type="checkbox" id="userInformation" formControlName="userInformation" />
   </div>
 
-  <button type="submit">Submit</button>
+  <button type="submit" [appHighlightOnFocus] = "'darkgreen'" >Submit</button>
 
 
 </form>
