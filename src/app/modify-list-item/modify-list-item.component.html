@@ -1,35 +1,52 @@
 <form [formGroup]="cosmeticForm" (ngSubmit)="onSubmit()">
   <div class="form-group">
-    <label for="serialNumber">Serial Number</label>
-    <input type="number" id="serialNumber" formControlName="serialNumber" [appHighlightOnFocus] = "'lightgrey'"  />
-  </div>
+    <mat-list>
 
-  <div class="form-group">
-    <label for="productName">Product Name</label>
+      <mat-list-item>
+      <mat-label> Serial Number</mat-label>
+      </mat-list-item>
+      <input type="number" id="serialNumber" formControlName="serialNumber" [appHighlightOnFocus] = "'lightgrey'"  />
+  <mat-divider></mat-divider>
+
+
+    <mat-list-item>
+      <mat-label> Product Name </mat-label>
+    </mat-list-item>
     <input type="text" id="productName" formControlName="productName" [appHighlightOnFocus] = "'lightgrey'" />
-  </div>
+    <mat-divider></mat-divider>
 
-  <div class="form-group">
-    <label for="price">Price</label>
+
+
+    <mat-list-item>
+      <mat-label> Price </mat-label>
+    </mat-list-item>
     <input type="text" id="price" formControlName="price" [appHighlightOnFocus] = "'lightgrey'" />
-  </div>
+    <mat-divider></mat-divider>
 
-  <div class="form-group">
-    <label for="color">Color</label>
+
+    <mat-list-item>
+      <mat-label> Color </mat-label>
+    </mat-list-item>
     <input type="text" id="color" formControlName="color" [appHighlightOnFocus] = "'lightgrey'" />
-  </div>
+    <mat-divider></mat-divider>
 
-  <div class="form-group">
-    <label for="skinType">Skin Type</label>
+
+    <mat-list-item>
+      <mat-label> Skin Type </mat-label>
+    </mat-list-item>
     <input type="text" id="skinType" formControlName="skinType" [appHighlightOnFocus] = "'lightgrey'" />
-  </div>
+    <mat-divider></mat-divider>
 
-  <div class="form-group">
-    <label for="userInformation">User Information Is Available</label>
-    <input type="checkbox" id="userInformation" formControlName="userInformation" />
-  </div>
 
-  <button type="submit" [appHighlightOnFocus] = "'darkgreen'" >Submit</button>
+    <mat-checkbox formControlName="isAdmin" class="checkbox">User Information Is Available</mat-checkbox>
+
+
+
+
+      <button mat-stroked-button type="submit" [appHighlightOnFocus] = "'darkgreen'" >Submit</button>
+
+    </mat-list>
+</div>
 
 
 </form>

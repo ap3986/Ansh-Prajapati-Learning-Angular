@@ -1,16 +1,25 @@
-import {Directive, Input} from '@angular/core';
-import {FormControl} from "@angular/forms";
-import {MatTooltipModule} from '@angular/material/tooltip';
-
-@Directive({
-  selector: '[appShowDetailsOnHover,matTooltip]',
-  standalone: true,
-})
-
-
-export class ShowDetailsOnHoverDirective {
-  @Input('matTooltip') message: string = "";
-  @Input('matTooltipPosition')  position: 'above';
-  constructor() { }
-
-}
+// import {Directive, ElementRef, HostListener, Input} from '@angular/core';
+//
+// @Directive({
+//   selector: '[appShowDetailsOnHover,matTooltip]',
+//   standalone: true,
+// })
+//
+//
+// export class ShowDetailsOnHoverDirective {
+//   @Input() appHoverHighlight = '';
+//   constructor(private el : ElementRef) { }
+//
+//   @HostListener('mouseenter') onMouseEnter(){
+//     this.highlight(this.appHoverHighlight || 'blue');
+//   }
+//   @HostListener('mouseleave') onMouseLeave(){
+//     this.highlight('');
+//   }
+//
+//   private highlight(color:string){
+//     this.el.nativeElement.style.backgroundColor = color;
+//   }
+//
+//
+// }

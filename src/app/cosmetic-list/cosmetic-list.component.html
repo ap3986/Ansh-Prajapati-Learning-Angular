@@ -1,6 +1,12 @@
 <div class="container">
-  <h2>Cosmetic Products</h2>
-<table>
+  <mat-card appearance="outlined">
+    <mat-card-header>
+      <mat-card-title> <h2>Cosmetic Products</h2>  </mat-card-title>
+      </mat-card-header>
+  </mat-card>
+
+  <mat-card-content>
+  <table>
   <thead>
   <tr>
     <th>Serial Number & Product Name </th>
@@ -11,16 +17,23 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let cosmetic of userList" [routerLink]="['/cosmetics',cosmetic.serialNumber]" [appHoverHighlight]="'lightblue'" [appShowDetailsOnHover] = "''">
-    <td>{{cosmetic | productSerialNumber | titlecase}}</td>
+  <tr *ngFor="let cosmetic of userList" [routerLink]="['/cosmetics',cosmetic.serialNumber]" [appHoverHighlight]="'lightblue'" >
+    <td matBadge="4" matBadgeSize="small">{{cosmetic | productSerialNumber | titlecase}}</td>
     <td [ngClass]="cosmetic.skinType | skinType">{{cosmetic.skinType}}</td>
     <td>{{cosmetic.color | lowercase}}</td>
     <td>{{cosmetic.price | currency: 'CAD': "symbol-narrow"}}</td>
     <td>{{cosmetic.userInformation}}</td>
+
+
+    <mat-icon>delete</mat-icon>
     <button type="button" (click)="onDelete(cosmetic.serialNumber)">Delete</button>
 
-    <button type="button" (click)="navigateToCosmeticList()">Back to List</button>
+    <div class="example-button-row">
+    <button mat-stroked-button type="button" (click)="navigateToCosmeticList()">Back to List</button>
+    </div>
   </tr>
   </tbody>
 </table>
+    <mat-icon svgIcon="thumbs-up" aria-hidden="false" aria-label="Example thumbs up SVG icon"></mat-icon>
+  </mat-card-content>
 </div>

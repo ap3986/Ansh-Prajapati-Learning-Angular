@@ -2,6 +2,7 @@ import { bootstrapApplication } from '@angular/platform-browser';
 import { AppComponent } from './app/app.component';
 import {provideRouter, Routes} from "@angular/router";
 import {CosmeticListComponent} from "./app/cosmetic-list/cosmetic-list.component";
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 const routes:Routes = [
   {path:'',redirectTo:'/cosmetics',pathMatch:'full'},
@@ -15,5 +16,5 @@ const routes:Routes = [
 ]
 
 bootstrapApplication(AppComponent, {
-  providers:[provideRouter(routes)]
+  providers:[provideRouter(routes), provideAnimationsAsync()]
 });
