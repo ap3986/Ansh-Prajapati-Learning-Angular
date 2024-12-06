@@ -3,12 +3,14 @@ import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
 import {NgForOf, NgIf} from "@angular/common";
 import {CosmeticListComponent} from "./cosmetic-list/cosmetic-list.component";
 import {CosmeticListItemComponent} from "./cosmetic-list-item/cosmetic-list-item.component";
+import {MatButton} from "@angular/material/button";
+import {MatToolbar} from "@angular/material/toolbar";
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterLink,RouterLinkActive,RouterOutlet, NgForOf, NgIf, CosmeticListComponent, CosmeticListItemComponent],
+  imports: [RouterLink, RouterLinkActive, RouterOutlet, NgForOf, NgIf, CosmeticListComponent, CosmeticListItemComponent, MatButton, MatToolbar],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

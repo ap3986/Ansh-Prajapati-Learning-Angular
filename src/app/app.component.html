@@ -1,9 +1,15 @@
 <div class="navigation-bar">
   <nav>
-    <a routerLink="/cosmetics" routerLinkActive="active"> Cosmetic Products</a>
-    <a routerLink="/modify-cosmetic" routerLinkActive="active">Modify Cosmetic Product</a>
+
+    <mat-toolbar>
+    <button mat-button routerLink="/cosmetics" routerLinkActive="active"> Cosmetic Products</button>
+    <button mat-button routerLink="/modify-cosmetic" routerLinkActive="active">Modify Cosmetic Product</button>
+
+    </mat-toolbar>
   </nav>
 </div>
+
+
 
 <div class="app-container">
   <h1>{{title}}</h1>
